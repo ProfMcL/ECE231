@@ -1,4 +1,4 @@
-# **Installing programming tools on macOS machines V2.0**
+# **Installing programming tools on macOS machines**
 Prepared for ECE-231 Spring 2024. This is version 2.0 of this install document
 
 This note provides instructions for downloading the VSCode editor and the AVR toolchain (compiler and other tools) onto a computer running macOS.  
@@ -6,51 +6,35 @@ This note provides instructions for downloading the VSCode editor and the AVR to
 ## **VS Code text editor**
 Visual Studio Code (aka VS Code) is a no-cost text editor owned by Microsoft. This is a popular editor among programmers because it has a number of features (eg, color coding, indentation, syntax, error checking, code folding, file management, etc..) that help to develop source code. Note that VS Code is not the same as another similarly-named Microsoft product, Visual Studio. Studio is a full blown Integrated Development Environment, while VS Code is simply a text editor that happens to have many features helpful for creating source code. 
 
-## **avr-gcc compiler** Use the avr-gcc compiler and assorted tools (aka, the tool-chain) on your macOS machine to compile source code into machine language understandable by AVR processors such as the ATmega328p and the ATtiny85. Access these tools by downloading the  the AVR 8-bit GNU  Toolchain freely available from the Microchip web site. (Microchip is the company that manufactures the AVR ATmega328P mcu.)
+### **Installing VS Code** 
+1. Goto https://code.visualstudio.com/docs/setup/mac and follow the Installation instructions there to download and install VS Code to your Applications folder and install a shortcut link in your dock. Important: Be sure to follow the instructions for "Launching from the command line". 
 
-## **homebrew** Homebrew is a software package manager for macOS. Once installed, homebrew helps with the installation of other software, handling dependencies, PATH variables, and other things that need to be set up for software to work correctly. Homebrew needs the macOS xcode command line tools in order to operate (not the full xcode system) and will install them during its own installation. Homebrew is similar to MacPorts and Fink, and if you already have one of these installed and know how to use it, feel free to use that instead.
+2. To test your installation, quit VS Code. Then open the Terminal App (found in /Applications/Utilities/Terminal.app) and type 	
+%***code .*** (Note: In this document, I have highlighted any text you need to type on the command line in Terminal. The % symbol represents the prompt you will see on the command line. Don't type it. Also: don't forget the space followed by the period after code. When you hit return, VS Code should open.)  
 
-## **avrdude (avr download/uploader)** 
-avrdude is the program used to flash compiled code to the ATmega328p MCU on the Arduino Uno development board.  
+3. Under the VS Code file menu, be sure that autosave is checked. If not, check it. 
 
-## **make** 
-Make is a program that automates the multi-step process of compiling, linking,copying and flashing a program to a microcontroller. A version of make comes installed as part of macOS, but it needs the xcode command line tools to work, and those tools will be installed when you install homebrew. 
+4. Add the Terminal to your dock, since we'll be using it frequently. Quit terminal and quit VS Code.  
 
-macOS version. You should be using an up-to-date version of the mac OS, such as mac OS 12 Monterey, or 13 Ventura or 14 Sonoma. 
 
-There are many steps involved in downloading, installing, and setting up these programs on your mac. You will need to set some environment PATH variables on your machine and use the Terminal command line app throughout. You should carefully read thru these instructions, twice, before you begin to download anything. 
 
-A few words about the terminal and the PATH variable. In ECE-232 and ECE-304, we use the Terminal App extensively rather than the graphical user interface on macOS machines. Whenever we start a new coding project, we will create a new folder, or subdirectory, for that project and we will be working within that directory. In order for the binary executable files associated with VS Code, avr-gcc, avrdude, make, etc... to be able to run from different directories, we need to have the directory paths for these files included in the environmental PATH variable. More in this below... 
+## **avr-gcc toolchain** 
+Use the avr-gcc compiler and a set of associated tools (collectively called a tool-chain) on your macOS machine to compile source code into AVR machine language understandable by AVR processors such as the ATmega328p and the ATtiny85. Access these tools by downloading the  the AVR 8-bit GNU  Toolchain freely available from the Microchip web site. (Microchip is the company that manufactures the AVR ATmega328P mcu.)
 
-PART 1. Install VS Code. 
+### **Install the avr-gcc toolchain** 
 
-Goto https://code.visualstudio.com/docs/setup/mac
-and follow the Installation instructions there to download and install VS Code to your Applications folder and install a shortcut link in your dock. Important: Be sure to follow the instructions for "Launching from the command line". 
-
-To test your installation, quit VS Code. Then open the Terminal App (found in /Applications/Utilities/Terminal.app) and type 
-	
-% code .      
-
-(Note: In this document, I have highlighted in yellow whenever you have something to type on the command line in Terminal. The % symbol represents the prompt you will see on the command line. Don't type it. Also: don't forget the space followed by the period after code. When you hit return, VS Code should open.  
-
-Under the VS Code file menu, be sure that autosave is checked. If not, check it. 
-
-Add the Terminal to your dock, since we'll be using it frequently. Quit terminal and quit VS Code.  
-
-PART 2. Install the avr-gcc compiler from Microchip. 
-
-2.1 Google "microchip avr gcc compiler" or goto 
+1. Google "microchip avr gcc compiler" or goto 
 https://www.microchip.com/en-us/tools-resources/develop/microchip-studio/gcc-compilers
 
-2.2 Scroll down and download "AVR 8-bit Toolchain (OSX)" version 3.7.0
+2. Scroll down and download "AVR 8-bit Toolchain (OSX)" version 3.7.0
 
-2.3 A compressed tar file will download, probably to your download folder, depending on your machine settings. Move this file into your Applications folder and double-click to open it. 
+3. A compressed tar file will download, probably to your download folder, depending on your machine settings. Move this file into your Applications folder and double-click to open it. 
 
-2.4 You will now have a folder named "avr8-gnu-toolchain-osx-3.7.0.518-darwin.any.x86_64" that contains numerous subfolders. Rename this folder "avr" and delete the downloaded tar file since that is no longer needed. 
+4. You will now have a folder named "avr8-gnu-toolchain-osx-3.7.0.518-darwin.any.x86_64" that contains numerous subfolders. Rename this folder "avr" and delete the downloaded tar file since that is no longer needed. 
 
-2.5 You now need to adjust the environmental PATH variable on your system so that it can find the binary files in the avr toolchain. You need to do two things:
+5. You now need to adjust the environmental PATH variable on your system so that it can find the binary files in the avr toolchain. You need to do two things:
 
-2.5.1 Create a simlink (symbolic link) to the avr toolchain: open terminal and type the following (again: % is the prompt. Don't type that.)
+5.1 Create a simlink (symbolic link) to the avr toolchain: open terminal and type the following (again: % is the prompt. Don't type that.)
 
 % cd /usr/local
 % sudo ln -s /applications/avr avr
@@ -58,7 +42,7 @@ https://www.microchip.com/en-us/tools-resources/develop/microchip-studio/gcc-com
 
 You will be asked to provide your computer login password after the sudo command.
 
-2.5.2 Modify your shell startup file so that your PATH variable contains the above link to the avr binary files. Your laptop probably is set up for the "zsh" shell by default, so you will be editing or creating the .zshrc file or the .zprofile in your home directory. If your mac is using the "bash" shell, then you will be editing or creating the .bash_profile in your home directory.  You can edit/create these files using VS Code. Type "code ." to open up all the files in your home directory and look for .zshrc or .zprofile (if you're using .zsh) or .bash_profile (if you're using the .bash shell). Either edit the appropriate file or create a new one if needed, adding the line:
+5.2 Modify your shell startup file so that your PATH variable contains the above link to the avr binary files. Your laptop probably is set up for the "zsh" shell by default, so you will be editing or creating the .zshrc file or the .zprofile in your home directory. If your mac is using the "bash" shell, then you will be editing or creating the .bash_profile in your home directory.  You can edit/create these files using VS Code. Type "code ." to open up all the files in your home directory and look for .zshrc or .zprofile (if you're using .zsh) or .bash_profile (if you're using the .bash shell). Either edit the appropriate file or create a new one if needed, adding the line:
 
 export PATH=/usr/local/bin:/usr/local/avr/bin:$PATH
 
@@ -81,6 +65,23 @@ and you should see something like
 avr-gcc (GCC) 7.3.0
 
 this means you have successfully installed the avr toolchain. So far, so good!
+
+
+## **homebrew** 
+Homebrew is a software package manager for macOS. Once installed, homebrew helps with the installation of other software, handling dependencies, PATH variables, and other things that need to be set up for software to work correctly. Homebrew needs the macOS xcode command line tools in order to operate (not the full xcode system) and will install them during its own installation. Homebrew is similar to MacPorts and Fink, and if you already have one of these installed and know how to use it, feel free to use that instead.
+
+## **avrdude (avr download/uploader)** 
+avrdude is the program used to flash compiled code to the ATmega328p MCU on the Arduino Uno development board.  
+
+## **make** 
+Make is a program that automates the multi-step process of compiling, linking,copying and flashing a program to a microcontroller. A version of make comes installed as part of macOS, but it needs the xcode command line tools to work, and those tools will be installed when you install homebrew. 
+
+macOS version. You should be using an up-to-date version of the mac OS, such as mac OS 12 Monterey, or 13 Ventura or 14 Sonoma. 
+
+There are many steps involved in downloading, installing, and setting up these programs on your mac. You will need to set some environment PATH variables on your machine and use the Terminal command line app throughout. You should carefully read thru these instructions, twice, before you begin to download anything. 
+
+A few words about the terminal and the PATH variable. In ECE-232 and ECE-304, we use the Terminal App extensively rather than the graphical user interface on macOS machines. Whenever we start a new coding project, we will create a new folder, or subdirectory, for that project and we will be working within that directory. In order for the binary executable files associated with VS Code, avr-gcc, avrdude, make, etc... to be able to run from different directories, we need to have the directory paths for these files included in the environmental PATH variable. More in this below... 
+
 
 3. Install Homebrew. 
 
