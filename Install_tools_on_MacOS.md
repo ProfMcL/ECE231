@@ -34,40 +34,24 @@ https://www.microchip.com/en-us/tools-resources/develop/microchip-studio/gcc-com
 
 5. You now need to adjust the environmental PATH variable on your system so that it can find the binary files in the avr toolchain. You need to do two things:
 
-5.1 Create a simlink (symbolic link) to the avr toolchain: open terminal and type the following three lines (remember: % is the prompt. Don't type that.)
+   5.a. Create a simlink (symbolic link) to the avr toolchain: open terminal and type the following three lines (remember: % is the prompt. Don't type that.)
 
-% ``cd /usr/local``
+         % ``cd /usr/local``
 
-% ``sudo ln -s /applications/avr avr``
+         % ``sudo ln -s /applications/avr avr``
 
-% ``cd $HOME``
+         % ``cd $HOME``
 
-You will be asked to provide your computer login password after the sudo command.
+      You will be asked to provide your computer login password after the sudo command.
 
-5.2 Modify your shell startup file so that your PATH variable contains the above link to the avr binary files. Your laptop probably is set up for the "zsh" shell by default, so you will be editing or creating the .zshrc file or the .zprofile in your home directory. If your mac is using the "bash" shell, then you will be editing or creating the .bash_profile in your home directory.  You can edit/create these files using VS Code. Type "code ." to open up all the files in your home directory and look for .zshrc or .zprofile (if you're using .zsh) or .bash_profile (if you're using the .bash shell). Either edit the appropriate file or create a new one if needed, adding the line:
+   5.b. Modify your shell startup file so that your PATH variable contains the above link to the avr binary files. Your laptop probably is set up for the "zsh" shell by default, so you will be editing or creating        the .zshrc file or the .zprofile in your home directory. If your mac is using the "bash" shell, then you will be editing or creating the .bash_profile in your home directory.  You can edit/create these files          using VS Code. Type "code ." to open up all the files in your home directory and look for .zshrc or .zprofile (if you're using .zsh) or .bash_profile (if you're using the .bash shell). Either edit the             appropriate file or create a new one if needed, adding the line:
 
-export PATH=/usr/local/bin:/usr/local/avr/bin:$PATH
+      ``export PATH=/usr/local/bin:/usr/local/avr/bin:$PATH``
 
-Quit VSCode, close Terminal then re-open it for this new setting to take effect. 
+   5.c. Quit VSCode, close Terminal then re-open it for this new setting to take effect. 
 
-Type 
 
-% which avr-gcc
-
-and you should see something like
-
-/usr/local/avr/bin/avr-gcc
-
-Now type 
-
-% avr-gcc --version
-
-and you should see something like
-
-avr-gcc (GCC) 7.3.0
-
-this means you have successfully installed the avr toolchain. So far, so good!
-
+   5.d. Type % ``which avr-gcc``and you should see something like``/usr/local/avr/bin/avr-gcc``.Now type ``% avr-gcc --version``and you should see something like``avr-gcc (GCC) 7.3.0``. This means you have successfully installed the avr toolchain. So far, so good!
 
 ## **homebrew** 
 Homebrew is a software package manager for macOS. Once installed, homebrew helps with the installation of other software, handling dependencies, PATH variables, and other things that need to be set up for software to work correctly. Homebrew needs the macOS xcode command line tools in order to operate (not the full xcode system) and will install them during its own installation. Homebrew is similar to MacPorts and Fink, and if you already have one of these installed and know how to use it, feel free to use that instead.
