@@ -1,4 +1,4 @@
-# **Installing programming tools on macOS machines**
+# **Installing programming tools on macOS machines (V2.0)**
 Prepared for ECE-231 Spring 2024. This is version 2.0 of this install document
 
 This note provides instructions for downloading the VSCode editor and the AVR toolchain (compiler and other tools) onto a computer running macOS.  
@@ -37,6 +37,7 @@ https://www.microchip.com/en-us/tools-resources/develop/microchip-studio/gcc-com
    5.a. Create a simlink (symbolic link) to the avr toolchain: open terminal and type the following three lines (remember: % is the prompt. Don't type that.)
 
          % ``cd /usr/local``
+   
 
          % ``sudo ln -s /applications/avr avr``
 
