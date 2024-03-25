@@ -1,19 +1,19 @@
-#**Installing programming tools on macOS machines V2.0**
+# **Installing programming tools on macOS machines V2.0**
 Prepared for ECE-231 Spring 2024. This is version 2.0 of this install document
 
 This note provides instructions for downloading the VSCode editor and the AVR toolchain (compiler and other tools) onto a computer running macOS.  
 
-##**VS Code text editor**
+## **VS Code text editor**
 Visual Studio Code (aka VS Code) is a no-cost text editor owned by Microsoft. This is a popular editor among programmers because it has a number of features (eg, color coding, indentation, syntax, error checking, code folding, file management, etc..) that help to develop source code. Note that VS Code is not the same as another similarly-named Microsoft product, Visual Studio. Studio is a full blown Integrated Development Environment, while VS Code is simply a text editor that happens to have many features helpful for creating source code. 
 
-##**avr-gcc compiler** Use the avr-gcc compiler and assorted tools (aka, the tool-chain) on your macOS machine to compile source code into machine language understandable by AVR processors such as the ATmega328p and the ATtiny85. Access these tools by downloading the  the AVR 8-bit GNU  Toolchain freely available from the Microchip web site. (Microchip is the company that manufactures the AVR ATmega328P mcu.)
+## **avr-gcc compiler** Use the avr-gcc compiler and assorted tools (aka, the tool-chain) on your macOS machine to compile source code into machine language understandable by AVR processors such as the ATmega328p and the ATtiny85. Access these tools by downloading the  the AVR 8-bit GNU  Toolchain freely available from the Microchip web site. (Microchip is the company that manufactures the AVR ATmega328P mcu.)
 
-##**homebrew** Homebrew is a software package manager for macOS. Once installed, homebrew helps with the installation of other software, handling dependencies, PATH variables, and other things that need to be set up for software to work correctly. Homebrew needs the macOS xcode command line tools in order to operate (not the full xcode system) and will install them during its own installation. Homebrew is similar to MacPorts and Fink, and if you already have one of these installed and know how to use it, feel free to use that instead.
+## **homebrew** Homebrew is a software package manager for macOS. Once installed, homebrew helps with the installation of other software, handling dependencies, PATH variables, and other things that need to be set up for software to work correctly. Homebrew needs the macOS xcode command line tools in order to operate (not the full xcode system) and will install them during its own installation. Homebrew is similar to MacPorts and Fink, and if you already have one of these installed and know how to use it, feel free to use that instead.
 
-##**avrdude (avr download/uploader)** 
+## **avrdude (avr download/uploader)** 
 avrdude is the program used to flash compiled code to the ATmega328p MCU on the Arduino Uno development board.  
 
-##**make** 
+## **make** 
 Make is a program that automates the multi-step process of compiling, linking,copying and flashing a program to a microcontroller. A version of make comes installed as part of macOS, but it needs the xcode command line tools to work, and those tools will be installed when you install homebrew. 
 
 macOS version. You should be using an up-to-date version of the mac OS, such as mac OS 12 Monterey, or 13 Ventura or 14 Sonoma. 
