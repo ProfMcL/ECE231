@@ -36,12 +36,11 @@ https://www.microchip.com/en-us/tools-resources/develop/microchip-studio/gcc-com
 
    5.a. Create a simlink (symbolic link) to the avr toolchain: open terminal and type the following three lines (remember: % is the prompt. Don't type that.)
 
-         % ``cd /usr/local``
+         % cd /usr/local
    
+         % sudo ln -s /applications/avr avr
 
-         % ``sudo ln -s /applications/avr avr``
-
-         % ``cd $HOME``
+         % cd $HOME
 
       You will be asked to provide your computer login password after the sudo command.
 
