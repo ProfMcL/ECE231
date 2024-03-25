@@ -1,14 +1,17 @@
 # ECE231
- Example Codes for 2nd half of ECE-231 Spring 2024 UMass
+
+## Example Codes for 2nd half of ECE-231 Spring 2024 UMass
 Installing programming tools on macOS machines V2.0
 2/24/24
 ECE-231 Spring 2024
 
 This note provides instructions for downloading the VSCode editor and the AVR toolchain (compiler and other tools) onto a computer running macOS.  
 
-VS Code text editor. Visual Studio Code (aka VS Code) is a no-cost text editor owned by Microsoft. This is a popular editor among programmers because it has a number of features (eg, color coding, indentation, syntax, error checking, code folding, file management, etc..) that help to develop source code. Note that VS Code is not the same as another similarly-named Microsoft product, Visual Studio. Studio is a full blown Integrated Development Environment, while VS Code is simply a text editor that happens to have many features helpful for creating source code. 
+### **VS Code text editor** 
+Visual Studio Code (aka VS Code) is a no-cost text editor owned by Microsoft. This is a popular editor among programmers because it has a number of features (eg, color coding, indentation, syntax, error checking, code folding, file management, etc..) that help to develop source code. Note that VS Code is not the same as another similarly-named Microsoft product, Visual Studio. Studio is a full blown Integrated Development Environment, while VS Code is simply a text editor that happens to have many features helpful for creating source code. Students starting the 8-bit part of ECE-231 should already be familiar with VS Code and have it installed and configured on their computers.
 
-avr-gcc compiler. Use the avr-gcc compiler and assorted tools (aka, the tool-chain) on your macOS machine to compile source code into machine language understandable by AVR processors such as the ATmega328p and the ATtiny85. Access these tools by downloading the  the AVR 8-bit GNU  Toolchain freely available from the Microchip web site. (Microchip is the company that manufactures the AVR ATmega328P mcu.)
+### **avr-gcc compiler** 
+Use the avr-gcc compiler and assorted tools (aka, the tool-chain) on your macOS machine to compile source code into machine language understandable by AVR processors such as the ATmega328p and the ATtiny85. Access these tools by downloading the  the AVR 8-bit GNU  Toolchain freely available from the Microchip web site. (Microchip is the company that manufactures the AVR ATmega328P mcu.)
 
 homebrew. Homebrew is a software package manager for macOS. Once installed, homebrew helps with the installation of other software, handling dependencies, PATH variables, and other things that need to be set up for software to work correctly. Homebrew needs the macOS xcode command line tools in order to operate (not the full xcode system) and will install them during its own installation. Homebrew is similar to MacPorts and Fink, and if you already have one of these installed and know how to use it, feel free to use that instead.
 
