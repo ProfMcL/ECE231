@@ -10,7 +10,7 @@ Visual Studio Code (aka VS Code) is a no-cost text editor owned by Microsoft. Th
 1. Goto https://code.visualstudio.com/docs/setup/mac and follow the Installation instructions there to download and install VS Code to your Applications folder and install a shortcut link in your dock. Important: Be sure to follow the instructions for "Launching from the command line". 
 
 2. To test your installation, quit VS Code. Then open the Terminal App (found in /Applications/Utilities/Terminal.app) and type 	
-%***code .*** (Note: In this document, I have highlighted any text you need to type on the command line in Terminal. The % symbol represents the prompt you will see on the command line. Don't type it. Also: don't forget the space followed by the period after code. When you hit return, VS Code should open.)  
+   %``code .`` (Note: in this document, text formatted ``like this`` refers to text you should type into the Terminal window. The ``%`` preceeding such test represents the terminal prompt for your input; your prompt might look different from this.) When you hit return, VS Code should open.  
 
 3. Under the VS Code file menu, be sure that autosave is checked. If not, check it. 
 
@@ -34,11 +34,13 @@ https://www.microchip.com/en-us/tools-resources/develop/microchip-studio/gcc-com
 
 5. You now need to adjust the environmental PATH variable on your system so that it can find the binary files in the avr toolchain. You need to do two things:
 
-5.1 Create a simlink (symbolic link) to the avr toolchain: open terminal and type the following (again: % is the prompt. Don't type that.)
+5.1 Create a simlink (symbolic link) to the avr toolchain: open terminal and type the following three lines (remember: % is the prompt. Don't type that.)
 
-% cd /usr/local
-% sudo ln -s /applications/avr avr
-% cd $HOME
+% ``cd /usr/local``
+
+% ``sudo ln -s /applications/avr avr``
+
+% ``cd $HOME``
 
 You will be asked to provide your computer login password after the sudo command.
 
