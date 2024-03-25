@@ -1,6 +1,6 @@
 /*******************************************************************
  * blink.c   -- Blink an LED on Port B pin5 (PB5).  
- * This is the built-in LED (pin13) on the Arduino Uno.
+ * This is the built-in LED (pin13) on the Arduino Uno dev board.
  * Date         Author          Revision
  * 12/14/21     D. McLaughlin   initial code creation
  * 1/9/22       D. McLaughlin   tested on host MacOS Monterey, Apple M1 pro
@@ -17,9 +17,9 @@
      DDRB = 1<<DDB5;            // Initialize PB5 as output pin
 
      while(1){                  // Loop forever
-         PORTB = 1<<PORTB5;     // Make PB5 high; LED ON
+         PORTB = 1<<PORTB5;     // Make PB5 high; all other PORTB pins low; LED ON
          _delay_ms(MYDELAY);    // Wait
-         PORTB = ~ (1<<PORTB5); // Make PB5 low; LED off
+         PORTB = ~ (1<<PORTB5); // Make PB5 low; all other PORTRB pins high;  LED off
          _delay_ms(MYDELAY);    // Wait
      }
 
