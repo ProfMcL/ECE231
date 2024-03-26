@@ -1,4 +1,4 @@
-# **Installing programming tools on macOS machines (V2.0)**
+# **Installing & testing programming tools on macOS machines (V2.0)**
 Prepared for ECE-231 Spring 2024. This is version 2.0 of this install document
 
 This note provides instructions for downloading the VSCode editor and the AVR toolchain (compiler and other tools) onto a computer running macOS.  
@@ -85,85 +85,52 @@ There are many steps involved in downloading, installing, and setting up these p
 
 A few words about the terminal and the PATH variable. In ECE-232 and ECE-304, we use the Terminal App extensively rather than the graphical user interface on macOS machines. Whenever we start a new coding project, we will create a new folder, or subdirectory, for that project and we will be working within that directory. In order for the binary executable files associated with VS Code, avr-gcc, avrdude, make, etc... to be able to run from different directories, we need to have the directory paths for these files included in the environmental PATH variable. More in this below... 
 
-## **Install avrdude**
-Once homebrew is installed, you can install avrdude simply by typing  % ``brew install avrdude`` at the Terminal prompt.  Homebrew will respond by fetching and downloading numerous files. When it finishes, check the avrdude installation by typing % ``which avrdude``you should see
-``/usr/local/bin/avrdude`` (on a mac with intel processor) or ``/opt/homebrew/bin/avrdude`` (on a mac with Apple silicon processor). Then just type % ``avrdude``and you'll see a screen full of menu options. This means avrdude was installed correctly.
-
 ## **Test make**
 Type % ``which make``you should see ``/usr/bin/make``. Type % ``make --version`` and you should see something like ``GNU Make 4.2.1`` or ``GNU Make 3.81``. This means you're ready to proceed.
 
-6. Build your first program. 
+# **Build & Flash your first program** 
 
 If everything so far has been successful, you are now able to write a source code file in VS Code then compile it from the command line and download the machine code to the flash ROM of your AVR MCU.  Create the classic “blink” project to test everything. The following instructions assume you are coding for an ATmega328p MCU on an Arduino Uno development (dev) board. 
 
-6.1 First, make a directory called “codingprojects” in your home directory. This is where you will be storing all your embedded coding projects. Next, move into this new directory.  Then, create a new directory called “blink” for the project that you will now build. Move into that directory. Then open VS Code from that directory. You do all this with the following Terminal commands:
+1. First, make a directory called “codingprojects” in your home directory. This is where you will be storing all your embedded coding projects. Next, move into this new directory.  Then, create a new directory called “blink” for the project that you will now build. Move into that directory. Then open VS Code from that directory. You do all this with the following Terminal commands:
 
-% mkdir codingprojects
-% cd codingprojects
-% mkdir blink
-% cd blink
-% code .
+% ``mkdir codingprojects``
+% ``cd codingprojects``
+% ``mkdir blink``
+% ``cd blink``
+% ``code .``
 
 This will open up VS Code in the blink project folder. Create a source code file called “blink.c” by first hovering, then clicking on the + file box toward the top of the window.
 
-6.2 Next, type in the source code shown or copy it from here: 
+2. Next, type in source code for a binking LED. You can copy it from here: https://github.com/ProfMcL/ECE231/blob/main/blink/blink.c
 
-https://github.com/ProfMcL/ECE231/blob/main/blink/blink.c
+3. Now, compile the code by typing: % ``avr-gcc -Wall -Os -DF_CPU=16000000 -mmcu=atmega328p -o main.elf blink.c``. If there are any errors, fix them and re-type the line above. Then type: % ``avr-objcopy -j .text -j .data -O ihex main.elf main.hex``. Then connect your Arduino Uno to your computer using the USB cable. Determine which USB port the Uno is connected to by typing: % ``ls /dev/tty.*``. You'll see something like 
+``/dev/tty.usbmodem1101``  (the numbers may be different). Now flash the code to the ATmega328P mcu by typing % ``avrdude -c Arduino -b 115200 -P /dev/tty.usbmodemXYZ  -p atmega328p -U flash:w:main.hex:i``. In place of XYZ type the number of your USB port identified in the previous step. You should now see the internal LED on the Arduino board blinking on and off at 1 second each.
+
+4. Now modify the code by changing MYDELAY to 100. Redo the commands avr-gcc, avr-objcopy, and avrdude and the LED should be blinking much faster. Note: you do not need to type in these commands. Position your cursar in the terminal prompt line and use the up and down arrows to scroll through previous commands.  
+
+5. You have undoubtedly noted that the three lines we're using to compile and flash are tedious to type. A makefile is a text file that contains a set of instructions for building code without needing to type in all the command line steps.  Download the makefile from https://github.com/ProfMcL/ECE231/blob/main/blink/makefile and move that file to your blink project folder.  (You should have version 2.0 of the makefile created by Prof. McLaughlin for this class). You will notice that this file is now listed along with blink.c and other files in the explorer panel of VS Code. Your laptop may have appended .txt or another extension to makefile during the download process. If so, right-click on makefile.txt and change its name to makefile without any extension.
+
+6. Read through the makefile using VSCode and update the PORT variable to the correct USB port for your Arduino Uno. You can find this by typing ls /dev/tty.* from terminal.
+
+7. Go back to blink.c and change MYDELAY to some other value, such as 3000, corresponding to 3 seconds. From the terminal command line, type
+% ``make``. This will compile your code. Then type % ``make flash``.This will flash your code to your device. 
+
+8. Unplug your USB cable from your laptop and plug it into a wall outlet via a USB adapter if you have one. 
+
+# **Congratulations on your first embedded coding project!** 
 
 
- 
-
-6.3 Now, compile the code by typing:
-
-% avr-gcc -Wall -Os -DF_CPU=16000000 -mmcu=atmega328p -o main.elf blink.c
-
-If there are any errors, fix them and re-type the line above. Then type:
-
-% avr-objcopy -j .text -j .data -O ihex main.elf main.hex
-
-Then connect your Arduino Uno to your computer using the USB cable. Determine which USB port the Uno is connected to by typing:
-
-% ls /dev/tty.*
-
-You'll see something like 
-
-/dev/tty.usbmodem1101  (the numbers may be different)
-
-Now flash the code to the ATmega328P mcu by typing
-
-% avrdude -c Arduino -b 115200 -P /dev/tty.usbmodemXYZ  -p atmega328p -U flash:w:main.hex:i
-
-In place of XYZ type the number of your USB port identified in the previous step. You should now see the internal LED on the Arduino board blinking on and off at 1 second each.
-
-6.4 Now modify the code by changing MYDELAY to 100. 
-
-Redo the commands avr-gcc, avr-objcopy, and avrdude and the LED should be blinking much faster. Note: you do not need to type in these commands. Position your cursar in the terminal prompt line and use the up and down arrows to scroll through previous commands.  
-
-6.5 You have undoubtedly noted that the three lines we're using to compile and flash are tedious to type. A makefile is a text file that contains a set of instructions for building code without needing to type in all the command line steps.  Download the makefile from https://github.com/ProfMcL/ECE231/blob/main/blink/makefile and move that file to your blink project folder.  (You should have version 2.0 of the makefile created by Prof. McLaughlin for this class). You will notice that this file is now listed along with blink.c and other files in the explorer panel of VS Code. Your laptop may have appended .txt or another extension to makefile during the download process. If so, right-click on makefile.txt and change its name to makefile without any extension.
-
-6.6 Read through the makefile using VSCode and update the PORT variable to the correct USB port for your Arduino Uno. You can find this by typing ls /dev/tty.* from terminal.
-
-6.7 Go back to blink.c and change MYDELAY to some other value, such as 3000, corresponding to 3 seconds. 
-
-From the terminal command line, type
-
-% make
-
-This will compile your code. Then type 
-
-% make flash
-
-This will flash your code to your device. 
-
-6.8 Unplug your USB cable from your laptop and plug it into a wall outlet via a USB adapter if you have one. 
-
-Congratulations on your first embedded coding project! 
 Document History
 
 Revised on	Version	Author	Description
+
 2/13/23	1.0	D. McLaughlin	Initial document creation
- 2/15/23	 1.1	 D.McLaughlin	Corrected typo page 3 part 2.5.1
+
+2/15/23	 1.1	 D.McLaughlin	Corrected typo page 3 part 2.5.1
+
 2/17/23	1.2	D. McLaughlin	added instruction 6.6 about changing USB port in makefile
+
 4/24/24	2.0	D. McLaughlin	optimized for ECE-204 Spring 2024
 
 
