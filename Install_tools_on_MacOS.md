@@ -1,7 +1,9 @@
-# **Installing & testing programming tools on macOS machines (V2.0)**
+# **Installing & testing programming tools on macOS machines**
 Prepared for ECE-231 Spring 2024. This is version 2.0 of this install document
 
-This note provides instructions for downloading the VSCode editor and the AVR toolchain (compiler and other tools) onto a computer running macOS.  
+This note provides instructions for downloading the VSCode editor and the AVR toolchain (compiler and other tools) onto a computer running macOS.  You should be using an up-to-date version of the mac OS, such as mac OS 12 Monterey, or 13 Ventura or 14 Sonoma. There are many steps involved in downloading, installing, and setting up these tools on your mac. You will need to set some environment PATH variables on your machine and use the Terminal command line app throughout. You should carefully read thru these instructions, twice, before you begin to download anything. 
+
+A few words about the terminal and the PATH variable. In ECE-231, we use the Terminal App extensively rather than the graphical user interface on macOS machines. Whenever we start a new coding project, we will create a new folder, or subdirectory, for that project and we will be working within that directory. In order for the binary executable files associated with VS Code, avr-gcc, avrdude, make, etc... to be able to run from different directories, we need to have the directory paths for these files included in the environmental PATH variable. More in this below... 
 
 ## **VS Code text editor**
 Visual Studio Code (aka VS Code) is a no-cost text editor owned by Microsoft. This is a popular editor among programmers because it has a number of features (eg, color coding, indentation, syntax, error checking, code folding, file management, etc..) that help to develop source code. Note that VS Code is not the same as another similarly-named Microsoft product, Visual Studio. Studio is a full blown Integrated Development Environment, while VS Code is simply a text editor that happens to have many features helpful for creating source code. 
@@ -21,7 +23,7 @@ Visual Studio Code (aka VS Code) is a no-cost text editor owned by Microsoft. Th
 ## **avr-gcc toolchain** 
 Use the avr-gcc compiler and a set of associated tools (collectively called a tool-chain) on your macOS machine to compile source code into AVR machine language understandable by AVR processors such as the ATmega328p and the ATtiny85. Access these tools by downloading the  the AVR 8-bit GNU  Toolchain freely available from the Microchip web site. (Microchip is the company that manufactures the AVR ATmega328P mcu.)
 
-### **Install the avr-gcc toolchain** 
+### **Installing the avr-gcc toolchain** 
 
 1. Google "microchip avr gcc compiler" or goto 
 https://www.microchip.com/en-us/tools-resources/develop/microchip-studio/gcc-compilers
@@ -53,10 +55,10 @@ https://www.microchip.com/en-us/tools-resources/develop/microchip-studio/gcc-com
 
    5.d. Type % ``which avr-gcc``and you should see something like``/usr/local/avr/bin/avr-gcc``.Now type ``% avr-gcc --version``and you should see something like``avr-gcc (GCC) 7.3.0``. This means you have successfully installed the avr toolchain. So far, so good!
 
-## **homebrew** 
+## **Homebrew** 
 Homebrew is a software package manager for macOS. Once installed, homebrew helps with the installation of other software, handling dependencies, PATH variables, and other things that need to be set up for software to work correctly. Homebrew needs the macOS xcode command line tools in order to operate (not the full xcode system) and will install them during its own installation. Homebrew is similar to MacPorts and Fink, and if you already have one of these installed and know how to use it, feel free to use that instead. We recommend you install Homebrew unless you have an alternate preferred way of installing code on your mac.
 
-### **Install Homebrew** 
+### **Installing Homebrew** 
 
 goto https://brew.sh/ You will see a link under the words "Install Homebrew" that looks like this:
 
@@ -68,25 +70,16 @@ Important: when Homebrew finishes loading, you will see "Next steps: Run these t
 
 Quit, then reopen Terminal for these path changes to take effect. 
 
-## **avrdude (avr download/uploader)** 
-avrdude is the program used to flash compiled code to the ATmega328p MCU on the Arduino Uno development board.  You can install it using Homebrew.
+## **avrdude** 
+avrdude (avr downloader/uploader) is the program used to flash compiled code to an AVR microcontroller. You can install it using Homebrew.
 
-### **Install avrdude** 
+### **Installing avrdude** 
 
-Once homebrew is installed, you can install avrdude simply by typing  % ``brew install avrdude`` at the Terminal prompt.  Homebrew will respond by fetching and downloading numerous files. When it finishes, check the avrdude installation by typing %`` which avrdude`` you should see
-``/usr/local/bin/avrdude`` (on a mac with intel processor) or ``/opt/homebrew/bin/avrdude`` (on a mac with Apple silicon processor). Then just type % ``avrdude`` and you'll see a screen full of menu options. This means avrdude was installed correctly.
+Once homebrew is installed, you can install avrdude simply by typing  % ``brew install avrdude`` at the Terminal prompt.  Homebrew will respond by fetching and downloading numerous files. When it finishes, check the avrdude installation by typing %`` which avrdude`` you should see ``/usr/local/bin/avrdude`` (on a mac with intel processor) or ``/opt/homebrew/bin/avrdude`` (on a mac with Apple silicon processor). Then just type % ``avrdude`` and you'll see a screen full of menu options. This means avrdude was installed correctly.
 
 ## **make** 
-Make is a program that automates the multi-step process of compiling, linking,copying and flashing a program to a microcontroller. A version of make comes installed as part of macOS, but it needs the xcode command line tools to work, and those tools will be installed when you install homebrew. 
+Make is a program that automates the multi-step process of compiling, linking, copying and flashing a program to a microcontroller. A version of make comes installed as part of macOS, but it needs the xcode command line tools to work, and those tools will have been installed when you installed homebrew.  To test you make program,  type % ``which make`` and you should see ``/usr/bin/make``.  Next, type % ``make --version`` and you should see something like ``GNU Make 4.2.1`` or ``GNU Make 3.81``. This means you're ready to proceed.
 
-macOS version. You should be using an up-to-date version of the mac OS, such as mac OS 12 Monterey, or 13 Ventura or 14 Sonoma. 
-
-There are many steps involved in downloading, installing, and setting up these programs on your mac. You will need to set some environment PATH variables on your machine and use the Terminal command line app throughout. You should carefully read thru these instructions, twice, before you begin to download anything. 
-
-A few words about the terminal and the PATH variable. In ECE-232 and ECE-304, we use the Terminal App extensively rather than the graphical user interface on macOS machines. Whenever we start a new coding project, we will create a new folder, or subdirectory, for that project and we will be working within that directory. In order for the binary executable files associated with VS Code, avr-gcc, avrdude, make, etc... to be able to run from different directories, we need to have the directory paths for these files included in the environmental PATH variable. More in this below... 
-
-## **Test make**
-Type % ``which make``you should see ``/usr/bin/make``. Type % ``make --version`` and you should see something like ``GNU Make 4.2.1`` or ``GNU Make 3.81``. This means you're ready to proceed.
 
 # **Build & Flash your first program** 
 
@@ -94,11 +87,13 @@ If everything so far has been successful, you are now able to write a source cod
 
 1. First, make a directory called “codingprojects” in your home directory. This is where you will be storing all your embedded coding projects. Next, move into this new directory.  Then, create a new directory called “blink” for the project that you will now build. Move into that directory. Then open VS Code from that directory. You do all this with the following Terminal commands:
 
-% ``mkdir codingprojects``
-% ``cd codingprojects``
-% ``mkdir blink``
-% ``cd blink``
-% ``code .``
+```
+% mkdir codingprojects
+% cd codingprojects
+% mkdir blink
+% cd blink
+% code .
+```
 
 This will open up VS Code in the blink project folder. Create a source code file called “blink.c” by first hovering, then clicking on the + file box toward the top of the window.
 
@@ -107,16 +102,16 @@ This will open up VS Code in the blink project folder. Create a source code file
 3. Now, compile the code by typing: % ``avr-gcc -Wall -Os -DF_CPU=16000000 -mmcu=atmega328p -o main.elf blink.c``. If there are any errors, fix them and re-type the line above. Then type: % ``avr-objcopy -j .text -j .data -O ihex main.elf main.hex``. Then connect your Arduino Uno to your computer using the USB cable. Determine which USB port the Uno is connected to by typing: % ``ls /dev/tty.*``. You'll see something like 
 ``/dev/tty.usbmodem1101``  (the numbers may be different). Now flash the code to the ATmega328P mcu by typing % ``avrdude -c Arduino -b 115200 -P /dev/tty.usbmodemXYZ  -p atmega328p -U flash:w:main.hex:i``. In place of XYZ type the number of your USB port identified in the previous step. You should now see the internal LED on the Arduino board blinking on and off at 1 second each.
 
-4. Now modify the code by changing MYDELAY to 100. Redo the commands avr-gcc, avr-objcopy, and avrdude and the LED should be blinking much faster. Note: you do not need to type in these commands. Position your cursar in the terminal prompt line and use the up and down arrows to scroll through previous commands.  
+5. Now modify the code by changing MYDELAY to 100. Redo the commands avr-gcc, avr-objcopy, and avrdude and the LED should be blinking much faster. Note: you do not need to type in these commands. Position your cursar in the terminal prompt line and use the up and down arrows to scroll through previous commands.  
 
-5. You have undoubtedly noted that the three lines we're using to compile and flash are tedious to type. A makefile is a text file that contains a set of instructions for building code without needing to type in all the command line steps.  Download the makefile from https://github.com/ProfMcL/ECE231/blob/main/blink/makefile and move that file to your blink project folder.  (You should have version 2.0 of the makefile created by Prof. McLaughlin for this class). You will notice that this file is now listed along with blink.c and other files in the explorer panel of VS Code. Your laptop may have appended .txt or another extension to makefile during the download process. If so, right-click on makefile.txt and change its name to makefile without any extension.
+6. You have undoubtedly noted that the three lines we're using to compile and flash are tedious to type. A makefile is a text file that contains a set of instructions for building code without needing to type in all the command line steps.  Download the makefile from https://github.com/ProfMcL/ECE231/blob/main/blink/makefile and move that file to your blink project folder.  (You should have version 2.0 of the makefile created by Prof. McLaughlin for this class). You will notice that this file is now listed along with blink.c and other files in the explorer panel of VS Code. Your laptop may have appended .txt or another extension to makefile during the download process. If so, right-click on makefile.txt and change its name to makefile without any extension.
 
-6. Read through the makefile using VSCode and update the PORT variable to the correct USB port for your Arduino Uno. You can find this by typing ls /dev/tty.* from terminal.
+7. Read through the makefile using VSCode and update the PORT variable to the correct USB port for your Arduino Uno. You can find this by typing ls /dev/tty.* from terminal.
 
-7. Go back to blink.c and change MYDELAY to some other value, such as 3000, corresponding to 3 seconds. From the terminal command line, type
+8. Go back to blink.c and change MYDELAY to some other value, such as 3000, corresponding to 3 seconds. From the terminal command line, type
 % ``make``. This will compile your code. Then type % ``make flash``.This will flash your code to your device. 
 
-8. Unplug your USB cable from your laptop and plug it into a wall outlet via a USB adapter if you have one. 
+9. Unplug your USB cable from your laptop and plug it into a wall outlet via a USB adapter if you have one. 
 
 # **Congratulations on your first embedded coding project!** 
 
