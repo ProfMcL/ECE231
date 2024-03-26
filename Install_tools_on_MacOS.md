@@ -54,10 +54,27 @@ https://www.microchip.com/en-us/tools-resources/develop/microchip-studio/gcc-com
    5.d. Type % ``which avr-gcc``and you should see something like``/usr/local/avr/bin/avr-gcc``.Now type ``% avr-gcc --version``and you should see something like``avr-gcc (GCC) 7.3.0``. This means you have successfully installed the avr toolchain. So far, so good!
 
 ## **homebrew** 
-Homebrew is a software package manager for macOS. Once installed, homebrew helps with the installation of other software, handling dependencies, PATH variables, and other things that need to be set up for software to work correctly. Homebrew needs the macOS xcode command line tools in order to operate (not the full xcode system) and will install them during its own installation. Homebrew is similar to MacPorts and Fink, and if you already have one of these installed and know how to use it, feel free to use that instead.
+Homebrew is a software package manager for macOS. Once installed, homebrew helps with the installation of other software, handling dependencies, PATH variables, and other things that need to be set up for software to work correctly. Homebrew needs the macOS xcode command line tools in order to operate (not the full xcode system) and will install them during its own installation. Homebrew is similar to MacPorts and Fink, and if you already have one of these installed and know how to use it, feel free to use that instead. We recommend you install Homebrew unless you have an alternate preferred way of installing code on your mac.
+
+### **Install Homebrew ** 
+
+goto https://brew.sh/ You will see a link under the words "Install Homebrew" that looks like this:
+
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+Copy that link using the copy symbol shown, open Terminal, and past the entire link contents on the command line. Press return, and homebrew will install. You will be asked for your password, then asked to hit return.  It will take some time, and it will install xcode command line tools along the way. Be patient. You may be asked to provide your computer login password a few times to give permission. 
+
+Important: when Homebrew finishes loading, you will see "Next steps: Run these two comands in your terminal to add Homebrew to your PATH". Carefully copy those two lines, one at a time, into your Terminal command line and hit return after pasting each line.  
+
+Quit, then reopen Terminal for these path changes to take effect. 
 
 ## **avrdude (avr download/uploader)** 
-avrdude is the program used to flash compiled code to the ATmega328p MCU on the Arduino Uno development board.  
+avrdude is the program used to flash compiled code to the ATmega328p MCU on the Arduino Uno development board.  You can install it using Homebrew.
+
+### **Install avrdude** 
+
+Once homebrew is installed, you can install avrdude simply by typing  % ``brew install avrdude`` at the Terminal prompt.  Homebrew will respond by fetching and downloading numerous files. When it finishes, check the avrdude installation by typing %`` which avrdude`` you should see
+``/usr/local/bin/avrdude`` (on a mac with intel processor) or ``/opt/homebrew/bin/avrdude`` (on a mac with Apple silicon processor). Then just type % ``avrdude`` and you'll see a screen full of menu options. This means avrdude was installed correctly.
 
 ## **make** 
 Make is a program that automates the multi-step process of compiling, linking,copying and flashing a program to a microcontroller. A version of make comes installed as part of macOS, but it needs the xcode command line tools to work, and those tools will be installed when you install homebrew. 
@@ -69,19 +86,7 @@ There are many steps involved in downloading, installing, and setting up these p
 A few words about the terminal and the PATH variable. In ECE-232 and ECE-304, we use the Terminal App extensively rather than the graphical user interface on macOS machines. Whenever we start a new coding project, we will create a new folder, or subdirectory, for that project and we will be working within that directory. In order for the binary executable files associated with VS Code, avr-gcc, avrdude, make, etc... to be able to run from different directories, we need to have the directory paths for these files included in the environmental PATH variable. More in this below... 
 
 
-3. Install Homebrew. 
 
-goto https://brew.sh/
-
-You will see a link under the words "Install Homebrew" that looks like this:
-
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-Copy that link using the copy symbol shown, open Terminal, and past the entire link contents on the command line. Press return, and homebrew will install. You will be asked for your password, then asked to hit return.  It will take some time, and it will install xcode command line tools along the way. Be patient. You may be asked to provide your computer login password a few times to give permission. 
-
-Important: when Homebrew finishes loading, you will see "Next steps: Run these two comands in your terminal to add Homebrew to your PATH". Carefully copy those two lines, one at a time, into your Terminal command line and hit return after pasting each line.  
-
-Quit, then reopen Terminal for these path changes to take effect. 
 
 4. Install avrdude.  Once homebrew is installed, you can install avrdude simply by typing 
 
