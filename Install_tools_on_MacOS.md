@@ -56,11 +56,11 @@ https://www.microchip.com/en-us/tools-resources/develop/microchip-studio/gcc-com
 ## **homebrew** 
 Homebrew is a software package manager for macOS. Once installed, homebrew helps with the installation of other software, handling dependencies, PATH variables, and other things that need to be set up for software to work correctly. Homebrew needs the macOS xcode command line tools in order to operate (not the full xcode system) and will install them during its own installation. Homebrew is similar to MacPorts and Fink, and if you already have one of these installed and know how to use it, feel free to use that instead. We recommend you install Homebrew unless you have an alternate preferred way of installing code on your mac.
 
-### **Install Homebrew ** 
+### **Install Homebrew** 
 
 goto https://brew.sh/ You will see a link under the words "Install Homebrew" that looks like this:
 
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+``/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"``
 
 Copy that link using the copy symbol shown, open Terminal, and past the entire link contents on the command line. Press return, and homebrew will install. You will be asked for your password, then asked to hit return.  It will take some time, and it will install xcode command line tools along the way. Be patient. You may be asked to provide your computer login password a few times to give permission. 
 
@@ -85,45 +85,12 @@ There are many steps involved in downloading, installing, and setting up these p
 
 A few words about the terminal and the PATH variable. In ECE-232 and ECE-304, we use the Terminal App extensively rather than the graphical user interface on macOS machines. Whenever we start a new coding project, we will create a new folder, or subdirectory, for that project and we will be working within that directory. In order for the binary executable files associated with VS Code, avr-gcc, avrdude, make, etc... to be able to run from different directories, we need to have the directory paths for these files included in the environmental PATH variable. More in this below... 
 
+## **Install avrdude**
+Once homebrew is installed, you can install avrdude simply by typing  % ``brew install avrdude`` at the Terminal prompt.  Homebrew will respond by fetching and downloading numerous files. When it finishes, check the avrdude installation by typing % ``which avrdude``you should see
+``/usr/local/bin/avrdude`` (on a mac with intel processor) or ``/opt/homebrew/bin/avrdude`` (on a mac with Apple silicon processor). Then just type % ``avrdude``and you'll see a screen full of menu options. This means avrdude was installed correctly.
 
-
-
-4. Install avrdude.  Once homebrew is installed, you can install avrdude simply by typing 
-
-% brew install avrdude
-
-at the Terminal prompt.  Homebrew will respond by fetching and downloading numerous files. When it finishes, check the avrdude installation by typing
-
-% which avrdude
-
-you should see
-
-/usr/local/bin/avrdude (on a mac with intel processor) or
-/opt/homebrew/bin/avrdude (on a mac with Apple silicon processor)
-
-then just type
-
-% avrdude
-
-and you'll see a screen full of menu options. This means avrdude was installed correctly.
-
-5. Test make. Type
-
-% which make
-
-you should see
-
-/usr/bin/make
-
-type 
-
-% make --version
-
-you should see something like:
-
-GNU Make 4.2.1 or Make 3.81
-
-This means you're ready to proceed.
+## **Test make**
+Type % ``which make``you should see ``/usr/bin/make``. Type % ``make --version`` and you should see something like ``GNU Make 4.2.1`` or ``GNU Make 3.81``. This means you're ready to proceed.
 
 6. Build your first program. 
 
