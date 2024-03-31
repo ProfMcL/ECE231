@@ -1,5 +1,5 @@
 /******************************
- * example2_main.c Alternately blinks LEDS on PD0-PD3 and
+ * example2.c Alternately blinks LEDS on PD0-PD3 and
  * PD4-PD7 with 250 mS beteeen blinks. 
  * Uses pins 0-3 (PD0-PD3) and 4-7 (PD4-PD7) on Arduino Uno
  * Date         Author          Revision

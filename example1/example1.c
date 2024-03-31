@@ -1,5 +1,5 @@
 /******************************
- * example1_main.c makes PC4-PC7 high and 
+ * example1.c makes PC4-PC7 high and 
  * glows LEDs connected to these pins. 
  * These are pins 4-7 on Arduino Uno
  * Date         Author          Revision

@@ -1,22 +1,26 @@
-# makefile for ECE-231 Arduino Uno projects
-# revision history
-#	Date		Author			Revision
-#	2/14/22		D. McLaughlin	initial release 
-
+# makefile V2.0. This is a makefile for AVR ATmega328P projects using Arduino Uno Dev board
+# ECE-231 Spring 2024. 
+# 
 # Instructions: 
-# (1) You need to copy this makefile into the project
-# folder for each coding project you undertake. 
-# (2) Edit the SERIALPORT variable:  replace "/dev/tty.usbmodem2101" 
-# with the port your Arduino UNO is connected to. eg, COM2 on Win10 or 
-# usbmodemxyz on macOS. If you're unsure, type "ls /dev/tty/*" from macOS 
-# Terminal for a listing of devices and ports. For windows, check 
-# Device Manager>Ports  to find your Arduino Uno COM port
-# (3) Replace "blink.c" with the name of your source code file
-# (4) To compile, simply type "make"
-# (5) To flash compiled code to Arduino, type "make flash"
+# Put this file (makefile, no extension) into the source code folder for each 
+# programming project. You should only need to change the SERIALPORT and SOURCEFILE. 
+# Options for running this makefile from Command Prompt (Windows) or Terminal (macOS):
+# "make" compiles code & creates a hex file for uploading to the MCU
+# "make -B" will force compiling even if the source code hasn't changed
+# "make flash" will compile, create hex file, and upload the hex file to the MCU
+# "make clean" will delete intermediate files make.elf and make.hex
 
-SERIALPORT = /dev/tty.usbmodem2101
-SOURCEFILE = example1_main.c
+#______________ MODIFY SERIALPORT AND SOURCEFILE_______________________
+# Specify the com port (windows) or USB port (macOS)
+# Use Device Manager to identify COM port number for Arduino Uno board in Windows
+# In Terminal, type ls /dev/tty.usb* to determine USB port number in macOS
+SERIALPORT = /dev/tty.usbmodem143101
+# Specify the name of your source code here:
+SOURCEFILE = blink.c
+#_____________________________________________________________________
+# Don't change anything below unless you know what you're doing....
+CLOCKSPEED = 16000000	
+PROGRAMMER = Arduino
 
 begin:	main.hex
 
@@ -26,7 +30,20 @@ main.hex: main.elf
 	avr-size --format=avr --mcu=atmega328p main.elf
 
 main.elf: $(SOURCEFILE)
-	avr-gcc -Wall -Os -DF_CPU=16000000 -mmcu=atmega328p -o main.elf $(SOURCEFILE)
+	avr-gcc -Wall -Os -DF_CPU=$(CLOCKSPEED) -mmcu=atmega328p -o main.elf $(SOURCEFILE)
 
 flash:	begin
-	avrdude -c arduino -b 115200 -P $(SERIALPORT) -p atmega328p -U flash:w:main.hex:i
+	avrdude -c $(PROGRAMMER) -b 115200 -P $(SERIALPORT) -p atmega328p -U flash:w:main.hex:i
+
+clean: 
+	rm -f main.elf main.hex
+
+
+# revision history
+#	Date		Author			Revision
+#	2/14/22		D. McLaughlin	V1.0 initial release 
+# 	2/15/22		D. McLaughlin	V1.1 updated with corrections (thanks S. Kaza)
+#	3/30/22		D. McLaughlin	V1.2 updated for use with Sparkfun Pocket Programmer
+# 	4/3/22		D. McLaughlin	V1.3 tested on Windows 10 (parallels 17 on MBP Apple Silicon)
+#	2/13/23		D. McLaughlin	V1.4 simplified for Arduino Uno dev board only, ECE231 Spring 2023
+#	3/25/24		D. McLaughlin	V2.0 reformatted, added clean, added version #'s for ECE231 Sp 2024
