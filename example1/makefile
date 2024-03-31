@@ -16,7 +16,7 @@
 # In Terminal, type ls /dev/tty.usb* to determine USB port number in macOS
 SERIALPORT = /dev/tty.usbmodem143101
 # Specify the name of your source code here:
-SOURCEFILE = blink.c
+SOURCEFILE = example1.c
 #_____________________________________________________________________
 # Don't change anything below unless you know what you're doing....
 CLOCKSPEED = 16000000	
