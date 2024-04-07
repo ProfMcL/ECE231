@@ -1,6 +1,6 @@
 # **Installing & testing programming tools on macOS machines**
 Prepared for ECE-231 Spring 2024. This is version 2.2 of this install document
-
+# **THIS IS THE CURRENT, MOST UP-TO-DATE VERSION OF THIS DOCUMENT**
 This note provides instructions for downloading the VSCode editor and the AVR toolchain (compiler and other tools) onto a computer running macOS.  You should be using an up-to-date version of the mac OS, such as mac OS 12 Monterey, or 13 Ventura or 14 Sonoma. There are many steps involved in downloading, installing, and setting up these tools on your mac. You will need to set some environment PATH variables on your machine and use the Terminal command line app throughout. You should carefully read thru these instructions, twice, before you begin to download anything. 
 
 A few words about the terminal and the PATH variable. In ECE-231, we use the Terminal App extensively rather than the graphical user interface on macOS machines. Whenever we start a new coding project, we will create a new folder, or subdirectory, for that project and we will be working within that directory. In order for the binary executable files associated with VS Code, avr-gcc, avrdude, make, etc... to be able to run from different directories, we need to have the directory paths for these files included in the environmental PATH variable. More in this below... 
