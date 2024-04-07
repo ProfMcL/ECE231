@@ -1,5 +1,9 @@
-// Written 4/21/22 D.McLaughlin
-// here are the necessary includes and function prototypes
+/********************************************************  
+* uart_sourcecode.c
+* Written 4/21/22 D.McLaughlin
+* here are the necessary includes and function prototypes
+* to create a simple library out of our 3 uart functions 
+**********************************************************/
 #include <avr/io.h>
 #include <string.h>
 void uart_init(void);
