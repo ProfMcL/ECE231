@@ -7,3 +7,10 @@ install_tools_on_macOS.md and install_tools_windows.md are instructions for inst
 all assignments and grading rubrics in the assignments folder
 
 detailed course schedule, syllabus, and other info in the "Install tools, schedules, etc.. folder.
+
+all code shown in lectures is contained in the code folder
+
+# **Most up-to-date versions of key files**
+makefile V2.0
+install_tools_on_MacOS.md V2.2
+install_tools_on_windows.md V2.0
