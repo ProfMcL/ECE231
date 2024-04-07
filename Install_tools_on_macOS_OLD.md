@@ -1,6 +1,8 @@
+# **THIS DOCUMENT IS OLD. SEE NEWER VERSION OF THIS DOCUMENT**
+
 # **Installing & testing programming tools on macOS machines**
 Prepared for ECE-231 Spring 2024. This is version 2.0 of this install document
-# **THIS DOCUMENT IS OLD. SEE NEWER VERSION OF THIS DOCUMENT**
+
 
 This note provides instructions for downloading the VSCode editor and the AVR toolchain (compiler and other tools) onto a computer running macOS.  You should be using an up-to-date version of the mac OS, such as mac OS 12 Monterey, or 13 Ventura or 14 Sonoma. There are many steps involved in downloading, installing, and setting up these tools on your mac. You will need to set some environment PATH variables on your machine and use the Terminal command line app throughout. You should carefully read thru these instructions, twice, before you begin to download anything. 
 
