@@ -1,19 +1,22 @@
 /*********************************************************************
  * serialcomm_main.c - this program continuously sends
  * the letter 'WOW!' to the serial monitor via the UART on the ATmega328P MCU. 
- * Date         Author          Revision
- * 3/1/22      	D. McLaughlin   initial release. based on serialcomm_main.c
- * 3/29/22		D. McLaughlin	added a blinking LED on PB5 w/ 100 ms delay
+ * Also toggles an LED on PB5 (Arduino 13, built-in; ATmega328P pin 19)
+ * Version	Date         Author          Revision
+ * 1.0		3/1/22      D. McLaughlin   initial release. based on serialcomm_main.c
+ * 1.1		3/29/22		D. McLaughlin	added a blinking LED on PB5 w/ delay
+ * 1.2		4/7/24		D. McL			cleaned up a bit
  *************************************************************************/ 
 
 #include <avr/io.h>				// Defines constants USCR0B, USCR0C, etc...
 #include <util/delay.h>
+#define LED PB5
 
 void uart_init(void);		    // Function prototype (declaration)
 void send_char(char);			// Function prototype (declaration)
 
 int main(void){                	// Main function definition
-	DDRB = 1<<DDB5;
+	DDRB = 1<<LED;
 	uart_init();               	// Initialize the UART
 
 	while (1) {					// Send repeatedly
@@ -22,8 +25,8 @@ int main(void){                	// Main function definition
 		send_char('W');
 		send_char(10);			// Carriage Return
 		send_char(13);			// Line feed
-		PORTB ^= 1<<PORTB5;		// Toggle the LED
-		_delay_ms(100);
+		PORTB ^= 1<<LED;		// Toggle the LED
+		_delay_ms(2000);
     }
 }
 
