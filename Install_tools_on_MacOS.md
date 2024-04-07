@@ -1,3 +1,5 @@
+# **THIS IS THE CURRENT, MOST UP-TO-DATE VERSION OF THIS DOCUMENT**
+
 # **Installing & testing programming tools on macOS machines**
 Prepared for ECE-231 Spring 2024. This is version 2.2 of this install document
 
