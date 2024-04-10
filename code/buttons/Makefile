@@ -14,7 +14,7 @@
 # Specify the com port (windows) or USB port (macOS)
 # Use Device Manager to identify COM port number for Arduino Uno board in Windows
 # In Terminal, type ls /dev/tty.usb* to determine USB port number in macOS
-SERIALPORT = /dev/tty.usbmodem2101
+SERIALPORT = /dev/tty.usbmodem101
 # Specify the name of your source code here:
 SOURCEFILE = switches2.c
 #_____________________________________________________________________
