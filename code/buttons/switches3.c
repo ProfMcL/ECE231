@@ -2,6 +2,8 @@
 switches are pressed. Input pins on PD3 and PD4. LEDS on PD6 on PD7
 This is an updated version of switches2.c D. McLaughlin 2/21/22 
 and uses #define macros and other variables to clean up code
+A video showing code & the wiring of the circuit is here: 
+https://youtu.be/SJE_TObvd-Q?feature=shared
 D. McLaughlin 4/13/24 */
 
 #include <avr/io.h>
