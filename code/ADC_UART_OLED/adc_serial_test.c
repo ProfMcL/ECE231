@@ -1,5 +1,5 @@
 /**********************************************
-* adc_serial.c  Reads analog voltage and writes
+* adc_serial_test.c  Reads analog voltage and writes
 * the digital result to the serial port via UART
 * for display on a serial monitor
 *
