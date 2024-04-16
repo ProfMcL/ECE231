@@ -14,7 +14,7 @@
 
 int main(void) {
     unsigned int digitalValue;
-    char buffer[6]
+    char buffer[6];
     
     uart_init();
     adc_init();

@@ -9,8 +9,8 @@
 
 // Change these two defines as needed for your application.
 // See Section 24.9 of the ATmega328P data sheet for reference
-#define ADC_CHANNEL 0       
-#define V_REF   1.1         
+#define ADC_CHANNEL 1       
+#define V_REF   5         
 
 
 /* Initialize the ADC module: selects ADC input and reference
