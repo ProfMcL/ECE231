@@ -15,7 +15,7 @@
 # In Terminal, type ls /dev/tty.usb* to determine USB port number in macOS
 SERIALPORT = /dev/tty.usbmodem2101
 # Specify the name of your source code here:
-SOURCEFILE = adc_serial.c my_adc_lib.c my_uart_lib.c
+SOURCEFILE = adc_serial_volts.c my_adc_lib.c my_uart_lib.c SSD1306.c i2c.c
 #_____________________________________________________________________
 # Don't change anything below unless you know what you're doing....
 CLOCKSPEED = 16000000	
