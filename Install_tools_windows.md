@@ -1,4 +1,4 @@
-#*THIS IS THE CURRENT, MOST UP-TO-DATE VERSION OF THIS DOCUMENT*
+# **THIS IS THE CURRENT, MOST UP-TO-DATE VERSION OF THIS DOCUMENT**
 
 # **Installing & testing programming tools on Windows machines**
 Prepared for ECE-231. This is version 2.0 of this install document
