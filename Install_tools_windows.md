@@ -51,7 +51,7 @@ This will open up VS Code in the blink project folder. Create a source code file
 
 2. Next, type in source code for a binking LED. You can copy it from here:
 
-https://github.com/ProfMcL/ECE231/blob/main/blink/blink.c
+https://github.com/ProfMcL/ECE231/blob/main/code/blink/blink.c
 
 3. Now, compile the code by typing:
 
@@ -73,7 +73,7 @@ In place of COMx type the number of the com port identified in the previous step
 
 6. Now modify the code by changing MYDELAY to 100. Redo the commands avr-gcc, avr-objcopy, and avrdude and the LED should be blinking much faster. Note: you do not need to type in these commands. Position your cursar in the terminal prompt line and use the up and down arrows to scroll through previous commands.  
 
-7. You have undoubtedly noted that the three lines we're using to compile and flash are tedious to type. A makefile is a text file that contains a set of instructions for building code without needing to type in all the command line steps.  Download the makefile from https://github.com/ProfMcL/ECE231/blob/main/blink/makefile and move that file to your blink project folder.  (You should have version 2.0 of the makefile created by Prof. McLaughlin for this class). You will notice that this file is now listed along with blink.c and other files in the explorer panel of VS Code. Your laptop may have appended .txt or another extension to makefile during the download process. If so, right-click on makefile.txt and change its name to makefile without any extension.
+7. You have undoubtedly noted that the three lines we're using to compile and flash are tedious to type. A makefile is a text file that contains a set of instructions for building code without needing to type in all the command line steps.  Download the makefile from https://github.com/ProfMcL/ECE231/blob/main/code/blink/makefile and move that file to your blink project folder.  (You should have version 2.0 of the makefile created by Prof. McLaughlin for this class). You will notice that this file is now listed along with blink.c and other files in the explorer panel of VS Code. Your laptop may have appended .txt or another extension to makefile during the download process. If so, right-click on makefile.txt and change its name to makefile without any extension.
 
 8. Read through the makefile using VSCode and update the PORT variable to the correct COM port for your Arduino Uno. You can find this port in your Device Manager.
 
