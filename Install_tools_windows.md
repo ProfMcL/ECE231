@@ -1,7 +1,7 @@
 # **THIS IS THE CURRENT, MOST UP-TO-DATE VERSION OF THIS DOCUMENT**
 
 # **Installing & testing programming tools on Windows machines**
-Prepared for ECE-231. This is version 2.0 of this install document
+Prepared for ECE-231 and ECE-304. This is version 2.0 of this install document
 
 This note provides instructions for downloading the VSCode editor and the WinAVR toolchain (compiler and other tools) onto a computer running Windows.  You should be using an up-to-date version of Windows such as Win10 or Win11. 
 
