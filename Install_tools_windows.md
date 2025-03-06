@@ -20,7 +20,7 @@ Visual Studio Code (aka VS Code) is a no-cost text editor owned by Microsoft. Th
 
 
 ## **WinAVR toolchain** 
-Use the WinAVR compiler and a set of associated tools (collectively called a tool-chain) on for Windows machines. This GNU toolchain is freely available from the Sourceforge web site. Goto https://sourceforge.net/projects/winavr/files/ and download the file WinAVR-20200220-install.exe. 
+Use the WinAVR compiler and a set of associated tools (collectively called a tool-chain) on Windows machines. This GNU toolchain is freely available from the Sourceforge web site. Goto https://sourceforge.net/projects/winavr/files/ and download the file WinAVR-20200220-install.exe. 
 Open the install file and the toolchain will be installed. Accept all defaults. The avr-gcc compiler, make, avrdude, and other files will be installed. Below, we will check that key files have been installed correctly:
 
 ### **avr-gcc compiler**
