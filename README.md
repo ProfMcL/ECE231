@@ -6,7 +6,7 @@ install_tools_on_macOS.md and install_tools_windows.md are instructions for inst
 
 all assignments and grading rubrics in the assignments folder
 
-detailed course schedule, syllabus, and other info in the "Install tools, schedules, etc.. folder.
+detailed course schedule, syllabus, and other info in the "Schedule, Kit Inventory, Syllabus" folder.
 
 all code shown in lectures is contained in the code folder
 
