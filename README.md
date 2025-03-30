@@ -16,6 +16,6 @@ makefile V2.0
 
 install_tools_on_MacOS.md V2.2
 
-install_tools_on_windows.md V2.0
+install_tools_on_windows.md V2.1
 
 lab assignments 8.1 - 8.3 are all V1.1
