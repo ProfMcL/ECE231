@@ -57,7 +57,7 @@ Use the avr-gcc compiler and a set of associated tools (collectively called a to
       brew install avr-gcc
       ```
 
-   4. Verify your installation (you should see something like `/usr/local/avr/bin/avr-gcc`)
+   4. Verify your installation (you should see something like `/usr/local/avr/bin/avr-gcc` or '/opt/homebrew/bin/avr-gcc')
       ```bash
       which avr-gcc
       ```
