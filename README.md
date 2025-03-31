@@ -12,7 +12,7 @@ all code shown in lectures is contained in the code folder
 
 # **Most up-to-date versions of key files**
 
-makefile V2.0
+makefile V2.1
 
 install_tools_on_MacOS.md V2.2
 
