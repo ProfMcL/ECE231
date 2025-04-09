@@ -1,6 +1,6 @@
 /*******************************************************************
  * bruceforce.c   Blinks the RGB LED Light Strip 
- * This code uses "brute force" to turn all bits of portD on and
+ * This code uses "brute force" to turn all bits of portB on and
  * off in a blinking pattern. Result is white LED's only. 
  * Version  Date         Author          Revision
  * 1.0      4/8/25     D. McLaughlin   initial code creation
@@ -30,3 +30,5 @@
  }
 
  /******* End of File *********/
+
+ 

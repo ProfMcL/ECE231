@@ -1,5 +1,5 @@
 /*******************************************************************
- * RGB_sequencer.c   Blinks the LED's of the RGB LED Light Strip 
+ * RGB_sequencer.c   Operates the LED's of the RGB LED Light Strip 
  * in sequence. This code uses bitl-level manpulations to to turn on 
  * and off individual R, G, B bits to achieve desired colors. 
  * Assume R = PB1; G = PB2; B = PB3.  
