@@ -6,16 +6,16 @@ install_tools_on_macOS.md and install_tools_windows.md are instructions for inst
 
 all assignments and grading rubrics in the assignments folder
 
-detailed course schedule, syllabus, and other info in the "Install tools, schedules, etc.. folder.
+detailed course schedule, syllabus, and other info in the "Schedule, Kit Inventory, Syllabus" folder.
 
 all code shown in lectures is contained in the code folder
 
 # **Most up-to-date versions of key files**
 
-makefile V2.0
+makefile V2.0 (ok to use this version.)  V2.1 (has "make clean" option also ok to use)
 
 install_tools_on_MacOS.md V2.2
 
-install_tools_on_windows.md V2.0
+install_tools_on_windows.md V2.1
 
 lab assignments 8.1 - 8.3 are all V1.1
