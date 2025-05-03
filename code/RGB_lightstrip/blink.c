@@ -16,17 +16,18 @@
  #include <avr/io.h>            // Defines port pins
  #include <util/delay.h>        // Declares _delay_ms
  #define MYDELAY 100           // This will be the delay in msec
+ #define LED PB0
  
  int main(void){
 
     // __________ inits __________
-     DDRB = 1<<DDB5;            // Initialize PB5 as output pin
+     DDRB = 1<<LED;            // Initialize PB5 as output pin
 
     // __________ event loop __________
      while(1){                  // Loop forever
-         PORTB |= 1<<PORTB5;     // Make PB5 high; LED ON
+         PORTB |= 1<<LED;     // Make PB5 high; LED ON
          _delay_ms(MYDELAY);    // Wait
-         PORTB &= ~(1<<PORTB5); // Make PB5 low; LED off
+         PORTB &= ~(1<<LED); // Make PB5 low; LED off
          _delay_ms(MYDELAY);    // Wait
      } // end event loop
 
